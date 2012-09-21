@@ -1,0 +1,54 @@
+# Sample configuration file
+
+# You need a Trello API key. Moreover, if you want to access a private board,
+# you need a OAuth token that authenticates an user that has read access to 
+# all the boards you want to monitor.
+#
+# Go here to generate an API key:
+# https://trello.com/1/appKey/generate
+# (the API secret is not needed).
+#
+# If you need a token, scroll down in the section "Read private data",
+# and click on "Click here to request a token". Authenticate with an user
+# account that has access to your boards, and get the token.
+#
+# If you don't need a token (that is, you use only public boards), just
+# remove the token line from this file.
+#
+TRELLO_API_KEY = "fill-in-as-explained-above"
+TRELLO_TOKEN = "fill-in-as-explained-above-or-delete-if-not-needed"
+
+# You need a HipChat API token. Go here to generate one:
+# https://[YOUR_GROUP].hipchat.com/admin/api
+#
+# Create a new Notification token, label it "Trello", and paste it here.
+#
+HIPCHAT_API_KEY = "fill-in-as-explained-above"
+
+# List here the Trello boards that you want to monitor, giving them a descriptive
+# name like in the example. Just visit the boards and get the IDs from the URL. 
+BOARD_MAIN = "123456789123456789123456789"
+BOARD_BRAINSTORMING = "123456789123456789123456789123456789"
+
+# List here the HipChat room IDs where you want to send notifications to.
+# https://[YOUR_GROUP].hipchat.com/rooms/ids 
+ROOM_STAFF = "44444"
+ROOM_DESIGNERS = "55555"
+
+# This is the main configuration section. For each board, specify which lists
+# you want to monitor, and which HipChat room send notifications to.
+# List names are specified with wildcars, so just use "*" to monitor all the lists.
+MONITOR = [
+	( BOARD_MAIN,
+		{
+			"list_names": [ "Current", "Done*" ],
+			"room_id": ROOM_STAFF,
+		}
+	),
+	( BOARD_BRAINSTORMING,
+		{
+			"list_names": [ "*" ],
+			"room_id": ROOM_DESIGNERS,
+		}
+	),
+]
