@@ -61,8 +61,8 @@ def trello(path, **kwargs):
     return json.loads(data)
 
 def msg(room_id, m, mtype="html"):
-    print m.encode("utf-8")
     if DEBUG:
+        print m.encode("utf-8")
         return 
 
     data = {
