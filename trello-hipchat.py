@@ -31,7 +31,7 @@ import urllib2, urllib
 import fnmatch
 import cgi
 
-DEBUG = True
+DEBUG = False
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 try:
