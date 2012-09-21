@@ -29,6 +29,6 @@ How to install
     instructions to get all the required API keys, tokens, IDs, etc.
   * Run trello-hipchat.py within cron. You can use `crontab -e` to edit
     the current user's crontab file, and add a line like this to run
-    the proram every minute:
+    the proram every minute and redirect logs to syslog:
 
-         * * * * * /path/to/trello-hipchat.py
+         * * * * /path/to/trello-hipchat.py 2>&1 | logger
