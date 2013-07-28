@@ -1,21 +1,20 @@
 # Sample configuration file
 
-# You need a Trello API key. Moreover, if you want to access a private board,
-# you need a OAuth token that authenticates an user that has read access to 
-# all the boards you want to monitor.
+# You need a Trello API key. 
 #
 # Go here to generate an API key:
 # https://trello.com/1/appKey/generate
 # (the API secret is not needed).
-#
-# If you need a token, scroll down in the section "Read private data",
-# and click on "Click here to request a token". Authenticate with an user
-# account that has access to your boards, and get the token.
-#
-# If you don't need a token (that is, you use only public boards), just
-# remove the token line from this file.
-#
 TRELLO_API_KEY = "fill-in-as-explained-above"
+
+# If you need trello-hipchat to access private boards,
+# you need a OAuth token that authenticates an user that has read access to 
+# all the boards you want to monitor.
+#
+# Go here, substituting the trello API key in the URL:
+# https://trello.com/1/authorize?response_type=token&key=[TRELLO_API_KEY]&scope=read&expiration=never&name=Trello-Hipchat
+#
+# If you don't need access to private boards, just comment/remove the following line.
 TRELLO_TOKEN = "fill-in-as-explained-above-or-delete-if-not-needed"
 
 # You need a HipChat API token. Go here to generate one:
