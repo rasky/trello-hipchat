@@ -31,4 +31,4 @@ How to install
     the current user's crontab file, and add a line like this to run
     the program every minute and redirect its logs to syslog:
 
-         * * * * /path/to/trello-hipchat.py 2>&1 | logger
+         * * * * * /path/to/trello-hipchat.py 2>&1 | logger
