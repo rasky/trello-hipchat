@@ -7,14 +7,14 @@
 # (the API secret is not needed).
 TRELLO_API_KEY = "fill-in-as-explained-above"
 
-# If you need trello-hipchat to access private boards,
+# If you want trello-hipchat to access private boards,
 # you need a OAuth token that authenticates an user that has read access to 
 # all the boards you want to monitor.
 #
 # Go here, substituting the trello API key in the URL:
 # https://trello.com/1/authorize?response_type=token&key=[TRELLO_API_KEY]&scope=read&expiration=never&name=Trello-Hipchat
 #
-# If you don't need access to private boards, just comment/remove the following line.
+# If you don't want to access to private boards, just comment/remove the following line.
 TRELLO_TOKEN = "fill-in-as-explained-above-or-delete-if-not-needed"
 
 # You need a HipChat API token. Go here to generate one:
@@ -35,7 +35,7 @@ ROOM_STAFF = "44444"
 ROOM_DESIGNERS = "55555"
 
 # This is the main configuration section. For each board, specify which lists
-# you want to monitor, and which HipChat room send notifications to.
+# you want to monitor, and which HipChat room notifications must be sent to.
 # List names are specified with wildcars, so just use "*" to monitor all the lists.
 MONITOR = [
 	( BOARD_MAIN,
