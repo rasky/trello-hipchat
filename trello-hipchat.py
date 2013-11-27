@@ -126,11 +126,17 @@ def notify(board_id, list_names, room_id):
             list_name = trello("/cards/%s/list" % card_id)["name"]
             author = ESC(A["memberCreator"]["fullName"])
             if not card_in_lists(list_name, list_names):
-                continue        
-            
+                continue
+
             aname = ESC(A["data"]["attachment"]["name"])
-            aurl = A["data"]["attachment"]["url"]
-                    
+            try:
+                aurl = A["data"]["attachment"]["url"]
+            except KeyError:
+                # If an attachment is deleted before we get to process it, the URL
+                # would be missing. In this case, we skip the notification as it is
+                # now useless.
+                continue
+
             m = "%s added an attachment to card <a href=\"%s\">%s</a>: <a href=\"%s\">%s</a>" % (author, card_url, card_name, aurl, aname)
             msg(room_id, m)
             if aurl.lower().endswith("png") or aurl.lower().endswith("gif") or aurl.lower().endswith("jpg") or aurl.lower().endswith("jpeg"):
