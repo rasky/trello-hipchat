@@ -9,7 +9,8 @@ subset of lists within it.
 Currently, the following Trello activities are notified for all the specified
 lists/boards:
 
-   * Comments being added to a card 
+   * Creation of a card
+   * Comments being added to a card
    * Attachments being added to a card
    * Moves of cards between lists, if etiher the old or the new list is
      among the monitored ones
