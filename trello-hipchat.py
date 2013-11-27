@@ -52,7 +52,7 @@ def trello(path, **kwargs):
     kwargs["key"] = TRELLO_API_KEY
     if "TRELLO_TOKEN" in globals():
         kwargs["token"] = TRELLO_TOKEN
-    
+
     url = "https://api.trello.com/1" + path + "?" + urllib.urlencode(kwargs)
     if DEBUG and 0:
         print url
@@ -63,7 +63,7 @@ def trello(path, **kwargs):
 def msg(room_id, m, mtype="html"):
     if DEBUG:
         print m.encode("utf-8")
-        return 
+        return
 
     data = {
         "from": "Trello",
@@ -72,11 +72,11 @@ def msg(room_id, m, mtype="html"):
         "color": "purple",
         "room_id": room_id
     }
-    
+
     data = urllib.urlencode(data)
     req = urllib2.urlopen("https://api.hipchat.com/v1/rooms/message?format=json&auth_token=%s" % HIPCHAT_API_KEY, data)
     req.read()
-        
+
 def trunc(s, maxlen=200):
     if len(s) >= maxlen:
         s = s[:maxlen] + "[...]"
@@ -95,7 +95,7 @@ def card_name_strip(n):
     if m:
         return m.group(1)
     return n
-    
+
 def notify(board_id, list_names, room_id):
     global LAST_ID
 
@@ -115,7 +115,7 @@ def notify(board_id, list_names, room_id):
             if not card_in_lists(list_name, list_names):
                 continue
 
-            text = trunc(" ".join(A["data"]["text"].split()))            
+            text = trunc(" ".join(A["data"]["text"].split()))
             msg(room_id, "%s commented on card <a href=\"%s\">%s</a>: %s" % (author, card_url, card_name, text))
 
         elif A["type"] == "addAttachmentToCard":

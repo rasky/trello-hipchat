@@ -22,9 +22,9 @@ a good balance and report important notifications to the whole development team.
 
 How to install
 ==============
- 
+
   * Copy the program to some Linux server you have access to.
-  * Copy the sample configuration from `trello-hipchat.cfg.sample` to 
+  * Copy the sample configuration from `trello-hipchat.cfg.sample` to
     `trello-hipchat.cfg`.
   * Go through the configuration, read the comments and follow all the
     instructions to get all the required API keys, tokens, IDs, etc.
