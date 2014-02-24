@@ -103,6 +103,7 @@ def notify(board_id, list_names, room_id):
     if not actions:
         return
     for A in reversed(actions):
+        LAST_ID = max(LAST_ID, long(A["id"], 16))
         if long(A["id"], 16) <= PREV_ID and not DEBUG:
             continue
         if A["type"] == "commentCard":
@@ -194,7 +195,6 @@ def notify(board_id, list_names, room_id):
                 (author, card_url, card_name))
 
 
-    LAST_ID = max(LAST_ID, long(A["id"], 16))
 
 
 if __name__ == "__main__":
